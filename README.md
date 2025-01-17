@@ -1,2 +1,8 @@
 # container-libvirt-qemu-nonroot
-Standalone containerized libvirt with qemu, running as non root, without systemd
+
+Containerized approach for running the virt stack:
+* Libvirt.
+* Qemu.
+* Golang-based process dispatcher.
+* Running as non root.
+* KVM/TUN injected manually.
