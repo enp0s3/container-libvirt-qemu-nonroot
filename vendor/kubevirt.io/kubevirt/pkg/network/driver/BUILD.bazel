@@ -1,0 +1,23 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "common.go",
+        "generated_mock_common.go",
+    ],
+    importmap = "kubevirt.io/kubevirt/vendor/kubevirt.io/kubevirt/pkg/network/driver",
+    importpath = "kubevirt.io/kubevirt/pkg/network/driver",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/golang/mock/gomock:go_default_library",
+        "//vendor/github.com/vishvananda/netlink:go_default_library",
+        "//vendor/k8s.io/utils/net:go_default_library",
+        "//vendor/kubevirt.io/api/core/v1:go_default_library",
+        "//vendor/kubevirt.io/client-go/log:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/network/cache:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/network/dhcp/server:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/network/dhcp/serverv6:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/network/dns:go_default_library",
+    ],
+)

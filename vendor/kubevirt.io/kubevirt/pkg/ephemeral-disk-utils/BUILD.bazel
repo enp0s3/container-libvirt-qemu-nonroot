@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "generated_mock_utils.go",
+        "utils.go",
+    ],
+    importmap = "kubevirt.io/kubevirt/vendor/kubevirt.io/kubevirt/pkg/ephemeral-disk-utils",
+    importpath = "kubevirt.io/kubevirt/pkg/ephemeral-disk-utils",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/golang/mock/gomock:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/safepath:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/virt-launcher/virtwrap/api:go_default_library",
+    ],
+)

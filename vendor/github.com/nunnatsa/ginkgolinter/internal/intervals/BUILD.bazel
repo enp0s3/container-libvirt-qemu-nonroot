@@ -1,0 +1,10 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["intervals.go"],
+    importmap = "kubevirt.io/kubevirt/vendor/github.com/nunnatsa/ginkgolinter/internal/intervals",
+    importpath = "github.com/nunnatsa/ginkgolinter/internal/intervals",
+    visibility = ["//vendor/github.com/nunnatsa/ginkgolinter:__subpackages__"],
+    deps = ["@org_golang_x_tools//go/analysis:go_default_library"],
+)

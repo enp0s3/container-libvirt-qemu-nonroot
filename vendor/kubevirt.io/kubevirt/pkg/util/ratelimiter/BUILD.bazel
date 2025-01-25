@@ -1,0 +1,10 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["ratelimiter.go"],
+    importmap = "kubevirt.io/kubevirt/vendor/kubevirt.io/kubevirt/pkg/util/ratelimiter",
+    importpath = "kubevirt.io/kubevirt/pkg/util/ratelimiter",
+    visibility = ["//visibility:public"],
+    deps = ["//vendor/k8s.io/client-go/util/flowcontrol:go_default_library"],
+)

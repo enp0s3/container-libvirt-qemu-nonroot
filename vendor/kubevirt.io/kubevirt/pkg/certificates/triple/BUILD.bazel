@@ -1,0 +1,10 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["triple.go"],
+    importmap = "kubevirt.io/kubevirt/vendor/kubevirt.io/kubevirt/pkg/certificates/triple",
+    importpath = "kubevirt.io/kubevirt/pkg/certificates/triple",
+    visibility = ["//visibility:public"],
+    deps = ["//vendor/kubevirt.io/kubevirt/pkg/certificates/triple/cert:go_default_library"],
+)

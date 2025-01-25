@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["validating-webhook.go"],
+    importmap = "kubevirt.io/kubevirt/vendor/kubevirt.io/kubevirt/pkg/virt-api/webhooks/validating-webhook",
+    importpath = "kubevirt.io/kubevirt/pkg/virt-api/webhooks/validating-webhook",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/kubevirt.io/client-go/kubecli:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/storage/admitters:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/util/webhooks/validating-webhooks:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/virt-api/webhooks:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/virt-api/webhooks/validating-webhook/admitters:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/virt-config:go_default_library",
+    ],
+)

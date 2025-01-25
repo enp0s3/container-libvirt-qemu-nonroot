@@ -1,0 +1,9 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["reverse_assertion.go"],
+    importmap = "kubevirt.io/kubevirt/vendor/github.com/nunnatsa/ginkgolinter/internal/reverseassertion",
+    importpath = "github.com/nunnatsa/ginkgolinter/internal/reverseassertion",
+    visibility = ["//vendor/github.com/nunnatsa/ginkgolinter:__subpackages__"],
+)

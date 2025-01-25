@@ -1,0 +1,30 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "block_metrics.go",
+        "collector.go",
+        "cpu_metrics.go",
+        "domainstats.go",
+        "filesystem_metrics.go",
+        "memory_metrics.go",
+        "network_metrics.go",
+        "node_cpu_affinity_metrics.go",
+        "scrapper.go",
+        "unit_converter.go",
+        "vcpu_metrics.go",
+    ],
+    importmap = "kubevirt.io/kubevirt/vendor/kubevirt.io/kubevirt/pkg/monitoring/metrics/virt-handler/domainstats",
+    importpath = "kubevirt.io/kubevirt/pkg/monitoring/metrics/virt-handler/domainstats",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/machadovilaca/operator-observability/pkg/operatormetrics:go_default_library",
+        "//vendor/k8s.io/client-go/tools/cache:go_default_library",
+        "//vendor/kubevirt.io/api/core/v1:go_default_library",
+        "//vendor/kubevirt.io/client-go/log:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/monitoring/metrics/virt-handler/collector:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/virt-handler/cmd-client:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/virt-launcher/virtwrap/stats:go_default_library",
+    ],
+)

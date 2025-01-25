@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "collector.go",
+        "scraper.go",
+    ],
+    importmap = "kubevirt.io/kubevirt/vendor/kubevirt.io/kubevirt/pkg/monitoring/metrics/virt-handler/collector",
+    importpath = "kubevirt.io/kubevirt/pkg/monitoring/metrics/virt-handler/collector",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/kubevirt.io/api/core/v1:go_default_library",
+        "//vendor/kubevirt.io/client-go/log:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/virt-handler/cmd-client:go_default_library",
+    ],
+)

@@ -1,0 +1,18 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["cloud-init.go"],
+    importmap = "kubevirt.io/kubevirt/vendor/kubevirt.io/kubevirt/pkg/cloud-init",
+    importpath = "kubevirt.io/kubevirt/pkg/cloud-init",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/google/uuid:go_default_library",
+        "//vendor/kubevirt.io/api/core/v1:go_default_library",
+        "//vendor/kubevirt.io/client-go/log:go_default_library",
+        "//vendor/kubevirt.io/client-go/precond:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/ephemeral-disk-utils:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/util:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/util/net/dns:go_default_library",
+    ],
+)

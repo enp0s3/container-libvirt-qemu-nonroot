@@ -1,0 +1,20 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["expression.go"],
+    importmap = "kubevirt.io/kubevirt/vendor/github.com/nunnatsa/ginkgolinter/internal/expression",
+    importpath = "github.com/nunnatsa/ginkgolinter/internal/expression",
+    visibility = ["//vendor/github.com/nunnatsa/ginkgolinter:__subpackages__"],
+    deps = [
+        "//vendor/github.com/go-toolsmith/astcopy:go_default_library",
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/expression/actual:go_default_library",
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/expression/matcher:go_default_library",
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/expression/value:go_default_library",
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/formatter:go_default_library",
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/gomegahandler:go_default_library",
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/gomegainfo:go_default_library",
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/reverseassertion:go_default_library",
+        "@org_golang_x_tools//go/analysis:go_default_library",
+    ],
+)

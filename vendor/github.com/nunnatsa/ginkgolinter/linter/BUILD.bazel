@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["ginkgo_linter.go"],
+    importmap = "kubevirt.io/kubevirt/vendor/github.com/nunnatsa/ginkgolinter/linter",
+    importpath = "github.com/nunnatsa/ginkgolinter/linter",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/expression:go_default_library",
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/formatter:go_default_library",
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/ginkgohandler:go_default_library",
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/gomegahandler:go_default_library",
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/reports:go_default_library",
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/rules:go_default_library",
+        "//vendor/github.com/nunnatsa/ginkgolinter/types:go_default_library",
+        "@org_golang_x_tools//go/analysis:go_default_library",
+    ],
+)

@@ -1,0 +1,9 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["mime.go"],
+    importmap = "kubevirt.io/kubevirt/vendor/kubevirt.io/kubevirt/pkg/rest",
+    importpath = "kubevirt.io/kubevirt/pkg/rest",
+    visibility = ["//visibility:public"],
+)

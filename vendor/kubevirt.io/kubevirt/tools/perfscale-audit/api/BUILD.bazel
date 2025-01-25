@@ -1,0 +1,9 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["api.go"],
+    importmap = "kubevirt.io/kubevirt/vendor/kubevirt.io/kubevirt/tools/perfscale-audit/api",
+    importpath = "kubevirt.io/kubevirt/tools/perfscale-audit/api",
+    visibility = ["//visibility:public"],
+)

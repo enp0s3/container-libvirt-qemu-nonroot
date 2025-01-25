@@ -1,0 +1,16 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "safepath.go",
+        "safepath_linux.go",
+    ],
+    importmap = "kubevirt.io/kubevirt/vendor/kubevirt.io/kubevirt/pkg/safepath",
+    importpath = "kubevirt.io/kubevirt/pkg/safepath",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/golang.org/x/sys/unix:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/unsafepath:go_default_library",
+    ],
+)

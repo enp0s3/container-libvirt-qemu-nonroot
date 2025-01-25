@@ -1,0 +1,21 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "metrics.go",
+        "version_metrics.go",
+    ],
+    importmap = "kubevirt.io/kubevirt/vendor/kubevirt.io/kubevirt/pkg/monitoring/metrics/virt-handler",
+    importpath = "kubevirt.io/kubevirt/pkg/monitoring/metrics/virt-handler",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/machadovilaca/operator-observability/pkg/operatormetrics:go_default_library",
+        "//vendor/k8s.io/client-go/tools/cache:go_default_library",
+        "//vendor/kubevirt.io/client-go/version:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/monitoring/metrics/common/client:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/monitoring/metrics/common/workqueue:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/monitoring/metrics/virt-handler/domainstats:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/monitoring/metrics/virt-handler/migrationdomainstats:go_default_library",
+    ],
+)

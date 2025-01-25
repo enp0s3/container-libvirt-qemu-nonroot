@@ -1,0 +1,16 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "disk.go",
+        "vhostmd.go",
+    ],
+    importmap = "kubevirt.io/kubevirt/vendor/kubevirt.io/kubevirt/pkg/downwardmetrics/vhostmd",
+    importpath = "kubevirt.io/kubevirt/pkg/downwardmetrics/vhostmd",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/kubevirt.io/kubevirt/pkg/downwardmetrics/vhostmd/api:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/util:go_default_library",
+    ],
+)

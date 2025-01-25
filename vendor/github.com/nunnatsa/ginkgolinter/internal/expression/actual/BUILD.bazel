@@ -1,0 +1,25 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "actual.go",
+        "actualarg.go",
+        "asyncactual.go",
+        "asyncfuncarg.go",
+        "comparisonAsserion.go",
+    ],
+    importmap = "kubevirt.io/kubevirt/vendor/github.com/nunnatsa/ginkgolinter/internal/expression/actual",
+    importpath = "github.com/nunnatsa/ginkgolinter/internal/expression/actual",
+    visibility = ["//vendor/github.com/nunnatsa/ginkgolinter:__subpackages__"],
+    deps = [
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/expression/value:go_default_library",
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/ginkgoinfo:go_default_library",
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/gomegahandler:go_default_library",
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/gomegainfo:go_default_library",
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/interfaces:go_default_library",
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/intervals:go_default_library",
+        "//vendor/github.com/nunnatsa/ginkgolinter/internal/reverseassertion:go_default_library",
+        "@org_golang_x_tools//go/analysis:go_default_library",
+    ],
+)

@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["filter.go"],
+    importmap = "kubevirt.io/kubevirt/vendor/kubevirt.io/kubevirt/pkg/rest/filter",
+    importpath = "kubevirt.io/kubevirt/pkg/rest/filter",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/github.com/emicklei/go-restful/v3:go_default_library",
+        "//vendor/kubevirt.io/client-go/log:go_default_library",
+    ],
+)

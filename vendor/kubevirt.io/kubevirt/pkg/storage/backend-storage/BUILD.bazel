@@ -1,0 +1,28 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["backend-storage.go"],
+    importmap = "kubevirt.io/kubevirt/vendor/kubevirt.io/kubevirt/pkg/storage/backend-storage",
+    importpath = "kubevirt.io/kubevirt/pkg/storage/backend-storage",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//vendor/k8s.io/api/batch/v1:go_default_library",
+        "//vendor/k8s.io/api/core/v1:go_default_library",
+        "//vendor/k8s.io/api/storage/v1:go_default_library",
+        "//vendor/k8s.io/apimachinery/pkg/api/errors:go_default_library",
+        "//vendor/k8s.io/apimachinery/pkg/api/resource:go_default_library",
+        "//vendor/k8s.io/apimachinery/pkg/apis/meta/v1:go_default_library",
+        "//vendor/k8s.io/apimachinery/pkg/types:go_default_library",
+        "//vendor/k8s.io/client-go/tools/cache:go_default_library",
+        "//vendor/kubevirt.io/api/core/v1:go_default_library",
+        "//vendor/kubevirt.io/client-go/kubecli:go_default_library",
+        "//vendor/kubevirt.io/client-go/log:go_default_library",
+        "//vendor/kubevirt.io/containerized-data-importer-api/pkg/apis/core/v1beta1:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/apimachinery/patch:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/controller:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/pointer:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/util:go_default_library",
+        "//vendor/kubevirt.io/kubevirt/pkg/virt-config:go_default_library",
+    ],
+)
